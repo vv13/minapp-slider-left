@@ -15,7 +15,6 @@ exports.default = Component({
     // 阈值，往左移动超过则显示菜单项，否则隐藏（一般为菜单宽的40%）
     moveThreshold: {
       type: Number,
-      value: 30
     },
     // 可以往左拖动的最大距离,同时它也是组件的初始x坐标，此时菜单不可见
     openWidth: {
@@ -77,7 +76,9 @@ exports.default = Component({
       }
 
       // 如果当前菜单是关着的，只要往左移动超过阀值就马上打开菜单
-      if (this.data.moveInstance < this.data.moveThreshold) {
+      const moveThreshold = this.data.moveThreshold || (this.data.openWidth * 0.4)
+
+      if (this.data.moveInstance < moveThreshold) {
         this.setData({
           open: false,
           x: this.data.openWidth
