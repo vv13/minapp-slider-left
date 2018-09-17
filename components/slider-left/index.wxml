@@ -6,9 +6,9 @@
     bind:touchstart="handleTouchestart"
     bind:touchend="handleTouchend"
     bind:change="handleChange">
-    <slot></slot>
+    <slot name="outer"></slot>
   </movable-view>
-  <view class='slider-left-handle'>
-    <view bind:tap="handleDelete" style="width:{{openWidth}}px" class='handle-delete'>删除</view>
+  <view class="slider-left-handle" style="width:{{openWidth}}px" >
+    <slot name="inner"></slot>
   </view>
 </movable-area>

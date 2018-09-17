@@ -8,7 +8,9 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports.default = Component({
-
+  options: {
+    multipleSlots: true // 在组件定义时的选项中启用多slot支持
+  },
   properties: {
     // 阈值，往左移动超过则显示菜单项，否则隐藏（一般为菜单宽的40%）
     moveThreshold: {
